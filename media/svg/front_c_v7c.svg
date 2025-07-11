@@ -9,7 +9,7 @@
    id="svg1"
    xml:space="preserve"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
-   sodipodi:docname="front_c_v7a.svg"
+   sodipodi:docname="front_c_v7c.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -113,36 +113,6 @@ function controlBreathe(id) {
   element.style.opacity = &quot;1&quot;; // Ensure visibility on start
 }
 
-
-const TVbreatheanimations = {};
-function TvBreathe(id) {
-  const element = document.getElementById(id);
-  if (!element) return;
-  // If it's already animating, cancel it and hide
-  if (TVbreatheanimations[id]) {
-    TVbreatheanimations[id].cancel();
-    delete TVbreatheanimations[id];
-    element.style.opacity = &quot;0&quot;;
-    return;
-  }
-  // Start breathe animation using Web Animations API
-  const animation = element.animate(
-    [
-      { opacity: 1 },
-      { opacity: 0.7 },
-      { opacity: 1 }
-    ],
-    {
-      duration: 4000,
-      iterations: Infinity,
-      easing: &quot;ease-in-out&quot;
-    }
-  );
-  TVbreatheanimations[id] = animation;
-  element.style.opacity = &quot;1&quot;; // Ensure visibility on start
-}
-
-
 const animationStates = {};       // Tracks running animations
 const animationDirections = {};   // Tracks current direction (1 or -1)
 const animationBounds = {};       // Stores computed min/max per element
@@ -180,6 +150,19 @@ function toggleBackAndForthAnimation(id, options = {}) {
   }, interval);
 }
 
+function delayDisplay(id) {
+  const element = document.getElementById(id);
+  if (!element) return;
+
+  // Start hidden with smooth transition
+  element.style.opacity = &quot;0&quot;;
+  element.style.transition = &quot;opacity 1s ease-in-out&quot;;
+
+  // Show after 15 seconds with fade-in
+  setTimeout(() =&gt; {
+    element.style.opacity = &quot;1&quot;;
+  }, 20000);
+}
 
 function startGlowEffect(id) {
   const element = document.getElementById(id);
@@ -235,6 +218,7 @@ function callToggleBackAndForthAnimation() {
 window.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; { // Run on load
   startGlowEffect(&quot;pathroom&quot;); // Replace with actual element ID
   popUpEffect(&quot;prompt&quot;)
+  delayDisplay(&quot;portal&quot;)
 });</script><sodipodi:namedview
      id="namedview1"
      pagecolor="#ffffff"
@@ -245,13 +229,13 @@ window.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; { // Run on load
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="1.4205482"
-     inkscape:cx="304.8119"
-     inkscape:cy="311.14748"
-     inkscape:window-width="1312"
-     inkscape:window-height="784"
-     inkscape:window-x="185"
-     inkscape:window-y="79"
+     inkscape:zoom="0.88427203"
+     inkscape:cx="310.99027"
+     inkscape:cy="166.80387"
+     inkscape:window-width="1112"
+     inkscape:window-height="761"
+     inkscape:window-x="517"
+     inkscape:window-y="150"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg1"
      showguides="false" /><defs
@@ -1720,7 +1704,40 @@ window.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; { // Run on load
        x2="84.510406"
        y2="52.874546"
        spreadMethod="pad"
-       gradientTransform="matrix(0.89698347,-0.07976344,0,0.90052294,3.433075,9.5929513)" /></defs><g
+       gradientTransform="matrix(0.89698347,-0.07976344,0,0.90052294,3.433075,9.5929513)" /><filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter7"
+       x="-0.076297118"
+       y="-0.11843635"
+       width="1.1525793"
+       height="1.2381836"><feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.40456505"
+         id="feGaussianBlur7" /></filter><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16"><path
+         style="font-variation-settings:'wght' 700;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.05072;stroke-linecap:square;stroke-miterlimit:3;stroke-dasharray:none;stroke-opacity:1"
+         d="m 50.518015,121.2694 -0.04889,17.05445 24.253579,1.48596 -0.03658,-18.19993 z"
+         id="path31"
+         sodipodi:nodetypes="ccccc" /></clipPath><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath17"><path
+         style="font-variation-settings:'wght' 700;display:inline;fill:#000000;fill-opacity:1;stroke:#44dbef;stroke-width:0.466345;stroke-linecap:square;stroke-miterlimit:3;stroke-dasharray:none;stroke-opacity:1"
+         d="m 88.255938,109.22365 -0.03516,10.72898 17.440662,0.79064 -0.0263,-11.44907 z"
+         id="path32"
+         sodipodi:nodetypes="ccccc"
+         inkscape:label="cont" /></clipPath><filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter8"
+       x="-0.017777852"
+       y="-0.014297251"
+       width="1.0355557"
+       height="1.0285945"><feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.08056174"
+         id="feGaussianBlur8" /></filter></defs><g
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="bg"
@@ -1754,16 +1771,20 @@ window.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; { // Run on load
        height="19.568027"
        preserveAspectRatio="none"
        xlink:href="comp/portal.gif"
-       id="image1-7"
+       id="portal"
        x="84.163544"
        y="40.533257"
-       style="fill:none;fill-opacity:1;stroke-width:3.38582;stroke-dasharray:none"
+       style="fill:none;fill-opacity:1;stroke-width:3.38582;stroke-dasharray:none;opacity:0"
        transform="matrix(0.89698346,-0.07976344,0,0.90052293,3.4330748,9.592951)"
        clip-path="url(#clipPath30)" /><path
        style="display:inline;opacity:1;mix-blend-mode:normal;fill:#000000;fill-opacity:0.00514139;fill-rule:nonzero;stroke:url(#linearGradient22);stroke-width:0.630366;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter26)"
        d="m 80.022223,40.14711 8.975979,-1.087996 -0.1088,16.156763 -8.75838,0.761597 z"
        id="pathroom"
-       inkscape:label="room" /><rect
+       inkscape:label="room" /><path
+       style="font-variation-settings:'wght' 700;opacity:0.658662;fill:#cfcfcf;fill-opacity:1;stroke-width:0.7;stroke-linecap:square;stroke-miterlimit:3;stroke-dasharray:none;filter:url(#filter8)"
+       d="m 84.562309,39.674225 10.87579,-1.181266 -0.08147,12.545853 -10.631389,0.977599 z"
+       id="path1"
+       transform="matrix(0.90052293,0,0,0.90052293,3.4331096,9.5933013)" /><rect
        style="font-variation-settings:'wght' 700;display:inline;opacity:0;fill:#c9a400;stroke:#67f0fe;stroke-width:1.62095;stroke-linecap:square;stroke-miterlimit:3;stroke-dasharray:none;stroke-opacity:1"
        id="nav_click"
        width="71.532501"
@@ -2135,28 +2156,35 @@ window.addEventListener(&quot;DOMContentLoaded&quot;, () =&gt; { // Run on load
        inkscape:label="chandelier_click" /></g><g
      id="g32"
      inkscape:label="tv"
-     onclick="TvBreathe('tv')"
+     onclick="controlLights('tv')"
      onmouseover="this.style.cursor = &quot;pointer&quot;"><g
        id="g30"
-       style="display:inline"><image
-         width="17.222198"
-         height="10.944089"
+       style="display:inline;stroke-width:0.666208"
+       transform="matrix(1.3857231,0,0,1.6259387,-36.615273,-75.492193)"><path
+         style="font-variation-settings:'wght' 700;display:inline;mix-blend-mode:normal;fill:#404040;fill-opacity:1;stroke:#031e22;stroke-width:0.714306;stroke-linecap:square;stroke-miterlimit:3;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter7)"
+         d="m 88.341142,110.07481 -0.03512,10.34804 17.422178,0.90163 -0.0262,-11.04308 z"
+         id="path29-8"
+         sodipodi:nodetypes="ccccc"
+         transform="matrix(0.9650795,0,0,0.99508988,3.7053186,1.0190286)" /><path
+         style="font-variation-settings:'wght' 700;display:inline;opacity:1;fill:#000000;fill-opacity:1;stroke:#44dbef;stroke-width:0.466344;stroke-linecap:square;stroke-miterlimit:3;stroke-dasharray:none;stroke-opacity:1"
+         d="m 88.253277,109.95338 -0.03516,10.72869 17.440063,0.93479 -0.0263,-11.44929 z"
+         id="path29"
+         sodipodi:nodetypes="ccccc" /><image
+         width="20.865246"
+         height="12.172329"
          preserveAspectRatio="none"
          xlink:href="comp/tv.gif"
          id="tv"
-         x="87.835243"
-         y="107.15589"
-         style="stroke-width:4.64178;opacity:0"
-         transform="matrix(0.99953204,0.03058883,0,1,0,0)"
-         clip-path="url(#clipPath15)"
-         inkscape:label="tv" /><path
-         style="font-variation-settings:'wght' 700;opacity:1;fill:none;stroke:#44dbef;stroke-width:0.7;stroke-linecap:square;stroke-miterlimit:3;stroke-dasharray:none;stroke-opacity:1"
-         d="m 87.720931,109.95338 0.157676,10.56435 17.247233,1.31826 -0.0717,-11.62969 z"
-         id="path29" /></g><path
-       style="font-variation-settings:'wght' 700;opacity:0;fill:#c9a400;stroke:#44dbef;stroke-width:0.499999;stroke-linecap:square;stroke-miterlimit:3;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
+         x="86.79274"
+         y="108.65533"
+         style="stroke-width:4.40851;opacity:0"
+         transform="matrix(0.99996584,0.00826517,0,1,0,0)"
+         clip-path="url(#clipPath17)" /></g><path
+       style="font-variation-settings:'wght' 700;opacity:0;fill:#c9a400;fill-opacity:1;stroke:#44dbef;stroke-width:0.499999;stroke-linecap:square;stroke-miterlimit:3;stroke-dasharray:none;stroke-opacity:1"
        d="m 82.740036,98.804681 -0.426495,34.972589 31.844959,3.41196 0.4265,-38.384549 z"
        id="tv_click"
-       inkscape:label="tv_click" /></g><g
+       inkscape:label="tv_click"
+       sodipodi:insensitive="true" /></g><g
      id="g1"
      inkscape:label="music"
      style="stroke:none;stroke-width:0.900522"
