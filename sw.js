@@ -1,6 +1,6 @@
 const cacheName = 'cache';
 const staticAssets = [
-  './a8-14.html',
+  './show.html',
   './style.css',
   './css/main.css',
   './css/menu.css',
