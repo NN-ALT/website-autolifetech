@@ -1,8 +1,8 @@
 {
   "name": "AutoLifeTech",
   "short_name": "ALT",
-  "id": "/website-autolifetech/",
-  "start_url": "/website-autolifetech/show.html",
+  "id": "/autolifetech.domainsystem.xyz/",
+  "start_url": "/autolifetech.domainsystem.xyz/show.html",
   "display": "standalone",
   "background_color": "#fff",
   "description": "Make your home smart, and life simpler.",
