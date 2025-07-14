@@ -2,7 +2,7 @@
   "name": "AutoLifeTech",
   "short_name": "ALT",
   "id": "./",
-  "start_url": "./show.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#fff",
   "description": "Make your home smart, and life simpler.",
